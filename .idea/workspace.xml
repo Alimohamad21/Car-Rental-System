@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="initializing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/models/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/models/users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="23G18MpjlNPZ9aZ4IPe7nYQmF50" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -27,7 +36,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="17.3.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="17.0.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -57,6 +69,9 @@
       <option name="presentableId" value="Default" />
       <updated>1641345448917</updated>
       <workItem from="1641345453285" duration="8583000" />
+      <workItem from="1641367028503" duration="13607000" />
+      <workItem from="1641390527025" duration="2520000" />
+      <workItem from="1641408733043" duration="7342000" />
     </task>
     <servers />
   </component>
@@ -73,42 +88,19 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initializing" />
     <option name="LAST_COMMIT_MESSAGE" value="initializing" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1641354421789">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641354421789" />
-    <state x="2660" y="261" key="FileChooserDialogImpl" timestamp="1641352421532">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2660" y="261" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641352421532" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1641352859595">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641352859595" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1641352859595">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641352859595" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1641352859595">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641352859595" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1641352859595">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641352859595" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641354496329">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641354496329" />
-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1641353451556">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641353451556" />
   </component>
 </project>

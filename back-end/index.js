@@ -3,18 +3,15 @@ const app = express()
 const cors = require('cors');
 app.use(express.json())
 app.use(cors());
-//const db = require('./models');
 
 
+const registerRouter = require('./routes/Users')
+app.use("/users", registerRouter)
 
-const usersRouter = require('./routes/Users')
-app.use("/users", usersRouter)
-
+const loginRouter = require('./routes/Login')
+app.use("/login",loginRouter)
 
 app.listen(3001, () => {
     console.log('server running on 3001')
 });
 
-// db.sequelize.sync().then(() => {
-//     app.listen(3001, () => console.log('server running on 3001'))
-// }).catch((e) => console.log(e))

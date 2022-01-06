@@ -1,25 +1,56 @@
 import './App.css';
 import axios from "axios";
-import {useEffect,useState} from "react";
+import {useState} from "react";
 
 function App() {
-  const [listOfUsers,setListOfUsers] = useState([]);
-  useEffect(()=>{
-    axios.get("http://localhost:3001/users").then((response)=>{
-      setListOfUsers(response.data);
-    });
-  },[]);
+  const [firstNameReg,setFirstName] = useState([]);
+  const [lastNameReg,setLastName] = useState([]);
+  const [emailReg,setEmail] = useState([]);
+  const [passwordReg,setPassword] = useState([]);
+  const [phoneNumberReg,setPhoneNumber] = useState([]);
+
+    const register = () => {
+      axios.post("http://localhost:3001/users" , {
+        firstName:firstNameReg,
+        lastName:lastNameReg,
+        email:emailReg,
+        password:passwordReg,
+        phoneNumber:phoneNumberReg
+      }).then((response)=>{
+      console.log(response);
+    })};
+
   return (
     <div className="App">
-      {listOfUsers.map((value,key) => {
-        return (
-            <div className="user">
-              <div className="name"> {value.name} </div>
-              <div className="creation_date"> {value.createdAt} </div>
-              <div className="updated"> {value.updatedAt} </div>
-            </div>
-        );
-      })}
+      <div className="registration">
+        <h1>Sign Up</h1>
+        <label>First Name</label>
+        <input type='text' onChange={(event) => {
+          setFirstName(event.target.value);
+        }}
+        />
+        <label>Last Name</label>
+        <input type='text' onChange={(event) => {
+          setLastName(event.target.value);
+        }}
+        />
+        <label>Email</label>
+        <input type='text' onChange={(event) => {
+          setEmail(event.target.value);
+        }}
+        />
+        <label>Password</label>
+        <input type='text' onChange={(event) => {
+          setPassword(event.target.value);
+        }}
+        />
+        <label>Phone Number</label>
+        <input type='number' onChange={(event) => {
+          setPhoneNumber(event.target.value);
+        }}
+        />
+        <button onClick={register} >Sign Up</button>
+      </div>
     </div>
   );
 }

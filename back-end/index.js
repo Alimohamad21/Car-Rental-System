@@ -5,8 +5,8 @@ app.use(express.json())
 app.use(cors());
 
 
-const registerRouter = require('./routes/Users')
-app.use("/users", registerRouter)
+const registerRouter = require('./routes/Register')
+app.use("/register", registerRouter)
 
 const loginRouter = require('./routes/Login')
 app.use("/login",loginRouter)

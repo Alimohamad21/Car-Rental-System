@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="log in and registration backend and frontend routing and validation done">
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="admin login, admin view, sign up and login changes according to new schema">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/SignUp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +102,7 @@
       <workItem from="1641490853232" duration="149000" />
       <workItem from="1641498404398" duration="2021000" />
       <workItem from="1641501805762" duration="340000" />
-      <workItem from="1641522089844" duration="6871000" />
+      <workItem from="1641522089844" duration="7705000" />
     </task>
     <task id="LOCAL-00001" summary="initializing">
       <created>1641416320016</created>
@@ -124,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641516864695</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="admin login, admin view, sign up and login changes according to new schema">
+      <created>1641611671125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641611671125</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initializing" />
     <MESSAGE value="log in and registration backend and frontend routing and validation done" />
-    <option name="LAST_COMMIT_MESSAGE" value="log in and registration backend and frontend routing and validation done" />
+    <MESSAGE value="admin login, admin view, sign up and login changes according to new schema" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin login, admin view, sign up and login changes according to new schema" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1641609877162">
@@ -186,10 +188,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641609877162" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641517352217">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641611675664">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641517352217" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641611675664" />
     <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1641506916651">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

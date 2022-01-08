@@ -1,17 +1,17 @@
-import axios from "axios";
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
 
 
 function Login() {
-    const [emailInput, setEmail] = useState([]);
+    const [accountInput, setAccount] = useState([]);
     const [passwordInput, setPassword] = useState([]);
     let [error, setError] = useState([]);
     const navigate = useNavigate();
 
     const login = async () => {
-        if (emailInput == '') {
-            setError('Please enter your email')
+        console.log('dakhalt')
+        if (accountInput == '') {
+            setError('Please enter email or username')
         } else if (passwordInput == '') {
             setError('Please enter a password')
         } else {
@@ -22,7 +22,7 @@ function Login() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    email: emailInput,
+                    account: accountInput,
                     password: passwordInput
                 }),
             }).then(res => {
@@ -33,9 +33,16 @@ function Login() {
                     throw Error(res.status);
             }).then(result => {
                 const status = result.data;
+                const isAdmin = result.admin;
                 console.log(`status is ${result.data}`)
                 if (status === 'success')
-                    navigate('/');
+                {
+                    console.log(`admin is ${isAdmin}`)
+                    if(isAdmin)
+                        navigate('/adminHome');
+                    else
+                        navigate('/')
+                }
                 else {
                     setError(status);
                     console.log(error);
@@ -48,9 +55,9 @@ function Login() {
     return (
         <div className='login'>
             <h1>Login</h1>
-            <label>Email</label>
+            <label>Please enter email or username</label>
             <input type='email' onChange={(event) => {
-                setEmail(event.target.value);
+                setAccount(event.target.value);
             }}/>
             <label>Password</label>
             <input type='password' onChange={(event) => {

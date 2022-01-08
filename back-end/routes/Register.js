@@ -20,17 +20,20 @@ router.post("/", (async (req, res) => {
     const email = req.body.email;
     const password = md5(req.body.password);
     const phoneNumber = req.body.phoneNumber;
-    db.query(`SELECT * FROM user WHERE email = ?`, [email],(error, rows) => {
-        console.log(`error is ${error}`)
+    const nationalId= req.body.nationalId;
+    const username=req.body.username;
+    db.query(`SELECT * FROM user WHERE email = ? OR username= ?`, [email,username],(error, rows) => {
+        console.log(`exists query returned ${rows.length}`);
         if (rows.length > 0) {
-            res.json({"data": "Email already exists"});
+            res.json({"data": "Account already exists"});
         }
         else {
             db.query(
-                "INSERT INTO user (first_name,last_name,email,password,phone_number) VALUES (?,?,?,?,?)",
-                [firstName, lastName, email, password, phoneNumber],
+                "INSERT INTO user (first_name,last_name,email,password,phone_number,National_ID,username) VALUES (?,?,?,?,?,?,?)",
+                [firstName, lastName, email, password, phoneNumber,nationalId,username],
                 (error, rows) => {
-                    res.json({"data": "success"})
+                    console.log(`error in inserting is${error}`)
+                        res.json({"data": "success"});
                 }
             );
         }

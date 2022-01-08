@@ -8,30 +8,6 @@ function Login() {
     let [error, setError] = useState([]);
     const navigate = useNavigate();
 
-    const getLocations = async () => {
-        let locations = [];
-        await fetch("http://localhost:3001/locations", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        }).then(res => {
-            if (res.ok) {
-                console.log()
-                return res.json();
-            } else
-                throw Error(res.status);
-        }).then(offices => {
-            for (const office of offices) {
-                locations.push(office.location)
-            }
-        }).catch(e => {
-            console.log('ERROR 1: ', e);
-        })
-        return locations;
-    }
-
     const login = async () => {
         if (accountInput == '') {
             setError('Please enter email or username')
@@ -63,10 +39,7 @@ function Login() {
                     if (isAdmin)
                         navigate('/adminHome');
                     else {
-                        getLocations().then(temp => {
-                            navigate('/customer', {state: {offices:temp}})
-                        });
-
+                        navigate('/customer');
                     }
                 } else {
                     setError(status);

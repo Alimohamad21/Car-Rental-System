@@ -1,10 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
-import {useLocation} from "react-router";
 
 function CustomerHome() {
-    const {state} = useLocation()
-    const {locations} = state;
+    console.log('dakhalt')
+    const [locations,setLocations] = useState([]);
+    useEffect( ()=>{
+        console.log(`$BEFORE`)
+        console.log(locations)
+        fetch("http://localhost:3001/locations", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+        }).then(res => {
+            if (res.ok) {
+                return res.json();
+            } else
+                throw Error(res.status);
+        }).then(offices => {
+            setLocations(offices.map((office)=>office.location))
+        }).catch(e => {
+            console.log('ERROR 1: ', e);
+        })
+        console.log(`$AFTER`)
+        console.log(locations)
+    },[])
 
     return (
         <div className="home">
@@ -17,14 +38,12 @@ function CustomerHome() {
                     title="Pick Up Location"
                     className="mt-2"
                 >
-                    {locations.map((item) =>
-                        <Dropdown.Item eventKey={item}>{item}</Dropdown.Item>
+                    {locations.map((item,key) =>
+                        <Dropdown.Item eventKey={key}>{item}</Dropdown.Item>
                     )}
                     <Dropdown.Divider />
                     <Dropdown.Item href="#/offices">All Offices</Dropdown.Item>
                 </DropdownButton>
-
-
                 <DropdownButton
                     id="return-office"
                     variant="secondary"

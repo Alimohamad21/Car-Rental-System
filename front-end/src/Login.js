@@ -3,39 +3,14 @@ import {useNavigate} from "react-router";
 
 
 function Login() {
-    const [accountInput, setAccount] = useState([]);
-    const [passwordInput, setPassword] = useState([]);
-    let [error, setError] = useState([]);
+    const [accountInput, setAccount] = useState('');
+    const [passwordInput, setPassword] = useState('');
+    let [error, setError] = useState('');
     const navigate = useNavigate();
-
-    const getLocations = async () => {
-        let locations = [];
-        await fetch("http://localhost:3001/locations", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        }).then(res => {
-            if (res.ok) {
-                console.log()
-                return res.json();
-            } else
-                throw Error(res.status);
-        }).then(offices => {
-            for (const office of offices) {
-                locations.push(office.location)
-            }
-        }).catch(e => {
-            console.log('ERROR 1: ', e);
-        })
-        return locations;
-    }
-
     const login = async () => {
-        if (accountInput == '') {
+        if (accountInput === '') {
             setError('Please enter email or username')
-        } else if (passwordInput == '') {
+        } else if (passwordInput === '') {
             setError('Please enter a password')
         } else {
             await fetch("http://localhost:3001/login", {
@@ -54,7 +29,7 @@ function Login() {
                     return res.json();
                 } else
                     throw Error(res.status);
-            }).then( async result => {
+            }).then(  result => {
                 const status = result.data;
                 const isAdmin = result.admin;
                 console.log(`status is ${result.data}`)
@@ -63,10 +38,7 @@ function Login() {
                     if (isAdmin)
                         navigate('/adminHome');
                     else {
-                        getLocations().then(temp => {
-                            navigate('/customer', {state: {offices:temp}})
-                        });
-
+                        navigate('/customer')
                     }
                 } else {
                     setError(status);

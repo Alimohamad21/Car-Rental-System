@@ -2,18 +2,18 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 function SignUp() {
-    const [firstNameReg, setFirstName] = useState([]);
-    const [lastNameReg, setLastName] = useState([]);
-    const [emailReg, setEmail] = useState([]);
-    const [passwordReg, setPassword] = useState([]);
-    const [phoneNumberReg, setPhoneNumber] = useState([]);
-    const [nationalIdReg,setNationalId]= useState([]);
-    const [usernameReg,setUsername]= useState([]);
-    let [error, setError] = useState([]);
+    const [firstNameReg, setFirstName] = useState('');
+    const [lastNameReg, setLastName] = useState('');
+    const [emailReg, setEmail] = useState('');
+    const [passwordReg, setPassword] = useState('');
+    const [phoneNumberReg, setPhoneNumber] = useState('');
+    const [nationalIdReg,setNationalId]= useState('');
+    const [usernameReg,setUsername]= useState('');
+    let [error, setError] = useState('');
     const navigate = useNavigate();
 
     const register = async () => {
-        if (firstNameReg == '' || lastNameReg == '' || emailReg == '' || passwordReg == '' || phoneNumberReg == '' || nationalIdReg=='' || usernameReg=='') {
+        if (firstNameReg === '' || lastNameReg === '' || emailReg === '' || passwordReg === '' || phoneNumberReg === '' || nationalIdReg==='' || usernameReg==='') {
             setError('Please enter all required fields')
         } else {
             await fetch("http://localhost:3001/register", {

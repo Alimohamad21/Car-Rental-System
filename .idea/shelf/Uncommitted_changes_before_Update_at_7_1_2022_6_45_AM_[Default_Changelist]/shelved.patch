@@ -1,0 +1,188 @@
+Index: front-end/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom';\r\nimport './index.css';\r\nimport Login from './Login';\r\nimport reportWebVitals from './reportWebVitals';\r\n\r\nReactDOM.render(\r\n  <React.StrictMode>\r\n    <Login />\r\n  </React.StrictMode>,\r\n  document.getElementById('root')\r\n);\r\n\r\n// If you want to start measuring performance in your app, pass a function\r\n// to log results (for example: reportWebVitals(console.log))\r\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\r\nreportWebVitals();\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/front-end/src/index.js b/front-end/src/index.js
+--- a/front-end/src/index.js	(revision 807bd01f340513031633b9c3bba3edf3b78c63b7)
++++ b/front-end/src/index.js	(date 1641484555652)
+@@ -2,11 +2,19 @@
+ import ReactDOM from 'react-dom';
+ import './index.css';
+ import Login from './Login';
++import App from './App';
+ import reportWebVitals from './reportWebVitals';
++import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
+ 
+ ReactDOM.render(
+   <React.StrictMode>
+-    <Login />
++      <Router history = {browserHistory}>
++          <Route path = "/" component = {App}>
++              <IndexRoute component = {App} />
++              <Route path = "login" component = {Login} />
++              <Route path = "home" component = {Home} />
++          </Route>
++      </Router>
+   </React.StrictMode>,
+   document.getElementById('root')
+ );
+Index: front-end/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"db\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@testing-library/jest-dom\": \"^5.16.1\",\r\n    \"@testing-library/react\": \"^12.1.2\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"axios\": \"^0.24.0\",\r\n    \"react\": \"^17.0.2\",\r\n    \"react-dom\": \"^17.0.2\",\r\n    \"react-scripts\": \"5.0.0\",\r\n    \"web-vitals\": \"^2.1.2\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/front-end/package.json b/front-end/package.json
+--- a/front-end/package.json	(revision 807bd01f340513031633b9c3bba3edf3b78c63b7)
++++ b/front-end/package.json	(date 1641483746372)
+@@ -9,6 +9,7 @@
+     "axios": "^0.24.0",
+     "react": "^17.0.2",
+     "react-dom": "^17.0.2",
++    "react-router": "^6.2.1",
+     "react-scripts": "5.0.0",
+     "web-vitals": "^2.1.2"
+   },
+Index: front-end/package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/front-end/package-lock.json b/front-end/package-lock.json
+--- a/front-end/package-lock.json	(revision 807bd01f340513031633b9c3bba3edf3b78c63b7)
++++ b/front-end/package-lock.json	(date 1641483746369)
+@@ -14,6 +14,7 @@
+         "axios": "^0.24.0",
+         "react": "^17.0.2",
+         "react-dom": "^17.0.2",
++        "react-router": "^6.2.1",
+         "react-scripts": "5.0.0",
+         "web-vitals": "^2.1.2"
+       }
+@@ -7816,6 +7817,14 @@
+         "he": "bin/he"
+       }
+     },
++    "node_modules/history": {
++      "version": "5.2.0",
++      "resolved": "https://registry.npmjs.org/history/-/history-5.2.0.tgz",
++      "integrity": "sha512-uPSF6lAJb3nSePJ43hN3eKj1dTWpN9gMod0ZssbFTIsen+WehTmEadgL+kg78xLJFdRfrrC//SavDzmRVdE+Ig==",
++      "dependencies": {
++        "@babel/runtime": "^7.7.6"
++      }
++    },
+     "node_modules/hoopy": {
+       "version": "0.1.4",
+       "resolved": "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz",
+@@ -12990,6 +12999,17 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/react-router": {
++      "version": "6.2.1",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-6.2.1.tgz",
++      "integrity": "sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg==",
++      "dependencies": {
++        "history": "^5.2.0"
++      },
++      "peerDependencies": {
++        "react": ">=16.8"
++      }
++    },
+     "node_modules/react-scripts": {
+       "version": "5.0.0",
+       "resolved": "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.0.tgz",
+@@ -21458,6 +21478,14 @@
+       "resolved": "https://registry.npmjs.org/he/-/he-1.2.0.tgz",
+       "integrity": "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
+     },
++    "history": {
++      "version": "5.2.0",
++      "resolved": "https://registry.npmjs.org/history/-/history-5.2.0.tgz",
++      "integrity": "sha512-uPSF6lAJb3nSePJ43hN3eKj1dTWpN9gMod0ZssbFTIsen+WehTmEadgL+kg78xLJFdRfrrC//SavDzmRVdE+Ig==",
++      "requires": {
++        "@babel/runtime": "^7.7.6"
++      }
++    },
+     "hoopy": {
+       "version": "0.1.4",
+       "resolved": "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz",
+@@ -25087,6 +25115,14 @@
+       "resolved": "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz",
+       "integrity": "sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A=="
+     },
++    "react-router": {
++      "version": "6.2.1",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-6.2.1.tgz",
++      "integrity": "sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg==",
++      "requires": {
++        "history": "^5.2.0"
++      }
++    },
+     "react-scripts": {
+       "version": "5.0.0",
+       "resolved": "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.0.tgz",
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"39e9fb92-3139-4f9a-8f53-6aeeef34890c\" name=\"Default Changelist\" comment=\"initializing\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/index.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/routes/Users.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/routes/Users.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/App.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/index.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"23G18MpjlNPZ9aZ4IPe7nYQmF50\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"javascript.nodejs.core.library.configured.version\" value=\"17.3.0\" />\r\n    <property name=\"javascript.nodejs.core.library.typings.version\" value=\"17.0.8\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"index.js\" type=\"NodeJSConfigurationType\" temporary=\"true\" nameIsGenerated=\"true\" path-to-js-file=\"$PROJECT_DIR$/back-end/index.js\" working-dir=\"$PROJECT_DIR$/back-end\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Node.js.index.js\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"39e9fb92-3139-4f9a-8f53-6aeeef34890c\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1641345448917</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1641345448917</updated>\r\n      <workItem from=\"1641345453285\" duration=\"8583000\" />\r\n      <workItem from=\"1641367028503\" duration=\"13607000\" />\r\n      <workItem from=\"1641390527025\" duration=\"2520000\" />\r\n      <workItem from=\"1641408733043\" duration=\"7761000\" />\r\n      <workItem from=\"1641453085861\" duration=\"961000\" />\r\n      <workItem from=\"1641455814874\" duration=\"7616000\" />\r\n      <workItem from=\"1641471084649\" duration=\"2504000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initializing\">\r\n      <created>1641416320016</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1641416320016</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ORDER\">\r\n      <list>\r\n        <option value=\"0\" />\r\n        <option value=\"2\" />\r\n        <option value=\"3\" />\r\n        <option value=\"1\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"test\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initializing\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"initializing\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 807bd01f340513031633b9c3bba3edf3b78c63b7)
++++ b/.idea/workspace.xml	(date 1641530655323)
+@@ -1,11 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="initializing">
++    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="login + sign up">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/routes/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Users.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/front-end/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/index.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -79,7 +78,7 @@
+       <workItem from="1641408733043" duration="7761000" />
+       <workItem from="1641453085861" duration="961000" />
+       <workItem from="1641455814874" duration="7616000" />
+-      <workItem from="1641471084649" duration="2504000" />
++      <workItem from="1641471084649" duration="9877000" />
+     </task>
+     <task id="LOCAL-00001" summary="initializing">
+       <created>1641416320016</created>
+@@ -88,7 +87,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1641416320016</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="login + sign up">
++      <created>1641475526626</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1641475526626</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -129,6 +135,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initializing" />
+-    <option name="LAST_COMMIT_MESSAGE" value="initializing" />
++    <MESSAGE value="login + sign up" />
++    <option name="LAST_COMMIT_MESSAGE" value="login + sign up" />
+   </component>
+ </project>
+\ No newline at end of file

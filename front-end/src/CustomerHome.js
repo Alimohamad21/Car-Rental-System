@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function CustomerHome() {
     console.log('dakhalt')
     const [locations,setLocations] = useState([]);
+    const [pickupDate, setPickupDate] = useState(new Date());
+    const [returnDate, setReturnDate] = useState(new Date());
     useEffect( ()=>{
         console.log(`$BEFORE`)
         console.log(locations)
@@ -57,6 +61,21 @@ function CustomerHome() {
                     <Dropdown.Divider />
                     <Dropdown.Item href="#/offices">All Offices</Dropdown.Item>
                 </DropdownButton>
+                <DatePicker
+                    selected={pickupDate}
+                    onChange={pickupDate => setPickupDate(pickupDate)}
+                    minDate = {new Date()}
+                    showDisabledMonthNavigation
+                />
+
+                <DatePicker
+                    selected={returnDate}
+                    onChange={returnDate => setReturnDate(returnDate)}
+                    minDate = {new Date()}
+                    showDisabledMonthNavigation
+                    // isClearable={true}
+                />
+
             </div>
         </div>
     );

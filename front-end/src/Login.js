@@ -52,7 +52,7 @@ function Login() {
     return (
         <div className='login'>
             <h1>Login</h1>
-            <label>Please enter email or username</label>
+            <label>Email</label>
             <input type='email' onChange={(event) => {
                 setAccount(event.target.value);
             }}/>

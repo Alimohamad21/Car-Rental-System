@@ -7,7 +7,7 @@ function Welcome() {
         navigate('/login');
     }
     return (
-        <div className="Welcome">
+        <div className="welcome">
             <h1>Welcome To Car Rental System</h1>
             <button onClick={start}>Start</button>
         </div>

@@ -56,7 +56,7 @@ function SignUp() {
     };
 
     return (
-        <div className="App">
+        <div className="signup">
             <div className="registration">
                 <h1>Sign Up</h1>
                 <label>First Name</label>

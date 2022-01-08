@@ -11,6 +11,9 @@ app.use("/register", registerRouter)
 const loginRouter = require('./routes/Login')
 app.use("/login",loginRouter)
 
+const locationsRouter = require('./routes/Locations')
+app.use("/locations",locationsRouter)
+
 app.listen(3001, () => {
     console.log('server running on 3001')
 });

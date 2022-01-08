@@ -8,8 +8,31 @@ function Login() {
     let [error, setError] = useState([]);
     const navigate = useNavigate();
 
+    const getLocations = async () => {
+        let locations = [];
+        await fetch("http://localhost:3001/locations", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+        }).then(res => {
+            if (res.ok) {
+                console.log()
+                return res.json();
+            } else
+                throw Error(res.status);
+        }).then(offices => {
+            for (const office of offices) {
+                locations.push(office.location)
+            }
+        }).catch(e => {
+            console.log('ERROR 1: ', e);
+        })
+        return locations;
+    }
+
     const login = async () => {
-        console.log('dakhalt')
         if (accountInput == '') {
             setError('Please enter email or username')
         } else if (passwordInput == '') {
@@ -31,19 +54,21 @@ function Login() {
                     return res.json();
                 } else
                     throw Error(res.status);
-            }).then(result => {
+            }).then( async result => {
                 const status = result.data;
                 const isAdmin = result.admin;
                 console.log(`status is ${result.data}`)
-                if (status === 'success')
-                {
+                if (status === 'success') {
                     console.log(`admin is ${isAdmin}`)
-                    if(isAdmin)
+                    if (isAdmin)
                         navigate('/adminHome');
-                    else
-                        navigate('/')
-                }
-                else {
+                    else {
+                        getLocations().then(temp => {
+                            navigate('/customer', {state: {offices:temp}})
+                        });
+
+                    }
+                } else {
                     setError(status);
                     console.log(error);
                 }

@@ -6,7 +6,6 @@ import Login from "./Login";
 import AdminHome from "./AdminHome";
 import CustomerHome from "./CustomerHome";
 
-
 function App() {
     return (
         <Router>

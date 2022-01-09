@@ -35,12 +35,12 @@ function NewReservation() {
         if (pickupLocation === 'default' || returnLocation === 'default')
             setError('Please Choose location');
         else
-            navigate('/carSelect',{
-                pickupLocation: pickupLocation,
-                returnLocation: returnLocation,
-                pickupDate: pickupDate,
-                returnDate: returnDate
-            });
+            navigate('/carSelect',{state:{
+                    'pickupDate':pickupDate,
+                    'pickupLocation':pickupLocation,
+                    'returnDate': returnDate,
+                    'returnLocation':returnLocation
+            }});
     };
 
     return (

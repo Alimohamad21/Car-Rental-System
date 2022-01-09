@@ -38,7 +38,7 @@ function Login() {
                     if (isAdmin)
                         navigate('/adminHome');
                     else {
-                        navigate('/customer')
+                        navigate('/reservation')
                     }
                 } else {
                     setError(status);

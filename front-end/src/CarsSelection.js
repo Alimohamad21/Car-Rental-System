@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {Card,ListGroup,Form} from "react-bootstrap";
+import {Card, Form, ListGroup} from "react-bootstrap";
+import {useLocation} from "react-router";
 
 function CarsSelection(){
     const [cars,setCars] = useState([]);
+    const [carBrand,setCarBrand] = useState(null);
+    const [carModel,setCarModel] = useState(null);
+    const [carEngine,setCarEngine] = useState(null);
+    const [carColor,setCarColor] = useState(null);
+    const [carPrice,setCarPrice] = useState(null);
     const {state} = useLocation();
     const {pickupDate,pickupLocation,returnDate,returnLocation}=state;
+
 
     useEffect(() => {
         fetch("http://localhost:3001/cars", {
@@ -15,7 +21,7 @@ function CarsSelection(){
                 "Content-Type": "application/json",
             }, body: JSON.stringify({
                 pickupDate : pickupDate,
-                pickupLocation: pickupLocation
+                pickupLocation: 2
             })
         }).then(res => {
             if (res.ok) {
@@ -49,8 +55,59 @@ function CarsSelection(){
         );
     }
 
+
     return(
         <div className="carsOptions">
+            <select
+                className="mt-2"
+                onChange={e => setCarBrand(e.target.value)}
+            >
+                <option selected disabled hidden>Brand</option>
+                {cars.map((card, index) =>
+                    <option
+                        key={index}> {card.brand}
+                    </option>
+                )}
+            </select>
+            <select
+                className="mt-2"
+                onChange={e => setCarModel(e.target.value)}
+            >
+                <option selected disabled hidden>Model</option>
+                {cars.map((card,index) =>
+                    <option key={index}>{card.model}</option>
+                )}
+            </select>
+            <select
+                className="mt-2"
+                onChange={e => setCarEngine(e.target.value)}
+            >
+                <option selected disabled hidden>Engine</option>
+                {cars.map((card,index) =>
+                    <option key={index}>{card.engine}</option>
+                )}
+            </select>
+            <select
+                className="mt-2"
+                onChange={e => setCarColor(e.target.value)}
+            >
+                <option selected disabled hidden>Color</option>
+                {cars.map((card,index) =>
+                    <option key={index}>{card.colour}</option>
+                )}
+            </select>
+            <select
+                className="mt-2"
+                onChange={e => setCarPrice(e.target.value)}
+            >
+                <option selected disabled hidden>Price</option>
+                {cars.map((card,index) =>
+                    <option key={index}>{card.rent_price}</option>
+                )}
+            </select>
+            <button>
+                Search
+            </button>
             {cars.map(createCard)}
         </div>
     );

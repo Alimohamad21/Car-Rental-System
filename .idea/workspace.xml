@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="datepicker">
-      <change afterPath="$PROJECT_DIR$/back-end/routes/Draft.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Cars.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Cars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +47,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

@@ -11,7 +11,7 @@ function CarsSelection(){
     const [carPrice,setCarPrice] = useState(null);
     const [checkedIndex,setChecked] = useState();
     const {state} = useLocation();
-    const {pickupDate,pickupLocation,returnDate,returnLocation}=state;
+    const {pickupDate,pickupLocation,returnDate,returnLocation,pickupName,returnName}=state;
     const navigate = useNavigate();
 
 
@@ -31,7 +31,10 @@ function CarsSelection(){
                 return res.json();
             } else
                 throw Error(res.status);
-        }).then((data) => { setCars(data) }
+        }).then((data) => { setCars(data)
+            console.log(pickupName);
+                console.log(returnName);
+        }
         ).catch(e => {
             console.log('ERROR 1: ', e);
         })
@@ -90,9 +93,9 @@ function CarsSelection(){
     const goToPayment = () => {
         navigate("/payment",{state:{
                 'pickupDate':pickupDate,
-                'pickupLocation':pickupLocation,
+                'pickupName':pickupName,
                 'returnDate': returnDate,
-                'returnLocation':returnLocation,
+                'returnName':returnName,
                 'car': cars[checkedIndex]
             }})
     }

@@ -8,6 +8,8 @@ function NewReservation() {
     const [number, setNumber] = useState([]);
     const [pickupLocation, setPickupLocation] = useState("default");
     const [returnLocation, setReturnLocation] = useState("default");
+    const [returnName, setReturnName] = useState("default");
+    const [pickupName, setPickupName] = useState("default");
     const [pickupDate, setPickupDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickupDate);
     let [error, setError] = useState('');
@@ -41,32 +43,41 @@ function NewReservation() {
                     'pickupDate':pickupDate,
                     'pickupLocation':pickupLocation,
                     'returnDate': returnDate,
-                    'returnLocation':returnLocation
+                    'returnLocation':returnLocation,
+                    'pickupName':pickupName,
+                    'returnName':returnName
                 }});
     };
-
+    const pickupData = (key) => {
+        setPickupLocation(number[key]);
+        setPickupName(locations[key]);
+    }
+    const returnData = (key) => {
+        setReturnLocation(number[key]);
+        setReturnName(locations[key]);
+    }
     return (
         <div className="new-reservation">
             <select
                 id="pickup-office"
                 className="mt-2"
-                onChange={e => setPickupLocation(e.target.value)}
+                onChange={e => pickupData(e.target.value)}
             >
                 <option selected disabled hidden>Pickup Location</option>
                 {locations.map((item, key) =>
                     <option
-                        value={number[key]}> {item}
+                        value={key}> {item}
                     </option>
                 )}
             </select>
             <select
                 id="return-office"
                 className="mt-2"
-                onChange={e => setReturnLocation(e.target.value)}
+                onChange={e => returnData(e.target.value)}
             >
                 <option selected disabled hidden>Return Location</option>
                 {locations.map((item,key) =>
-                    <option value={number[key]}>{item}</option>
+                    <option value={key}>{item}</option>
                 )}
             </select>
             <DatePicker

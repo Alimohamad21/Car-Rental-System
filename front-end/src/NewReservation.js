@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
 import DatePicker from "react-datepicker";
+import {useNavigate} from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
 function NewReservation() {
     const [locations, setLocations] = useState([]);
-    const [pickupLocation, setPickupLocation] = useState();
-    const [returnLocation, setReturnLocation] = useState();
+    const [pickupLocation, setPickupLocation] = useState("default");
+    const [returnLocation, setReturnLocation] = useState("default");
     const [pickupDate, setPickupDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickupDate);
     let [error, setError] = useState('');
+    const navigate = useNavigate();
+
     useEffect(() => {
         fetch("http://localhost:3001/locations", {
             method: "GET",
@@ -29,9 +32,15 @@ function NewReservation() {
     }, [])
 
     const goToCarsList = () => {
-
-        //Navigation to cars list
-
+        if (pickupLocation === 'default' || returnLocation === 'default')
+            setError('Please Choose location');
+        else
+            navigate('/',{
+                pickupLocation: pickupLocation,
+                returnLocation: returnLocation,
+                pickupDate: pickupDate,
+                returnDate: returnDate
+            });
     };
 
     return (

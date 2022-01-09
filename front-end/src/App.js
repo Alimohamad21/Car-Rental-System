@@ -4,7 +4,8 @@ import Welcome from "./Welcome";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import AdminHome from "./AdminHome";
-import CustomerHome from "./CustomerHome";
+import NewReservation from "./NewReservation";
+import CarsSelection from './CarsSelection';
 
 function App() {
     return (
@@ -15,8 +16,9 @@ function App() {
                         <Route exact path="/" element={<Welcome/>}/>
                         <Route exact path="/signup" element={<SignUp/>}/>
                         <Route exact path="/login" element={<Login/>}/>
-                        <Route exact path="/customer" element={<CustomerHome/>}/>
+                        <Route exact path="/reservation" element={<NewReservation/>}/>
                         <Route exact path="/adminHome" element={<AdminHome/>}/>
+                        <Route exact path="/carSelect" element={<CarsSelection/>}/>
                     </Routes>
                 </div>
             </div>

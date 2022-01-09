@@ -3,8 +3,8 @@ const router = express.Router()
 const db = require('../database');
 
 router.get("/", (async (req, res) => {
-    const pickup_time = '2022-01-10';
-    const pickup_office = 1;
+     const pickup_time = '2022-01-10';
+     const pickup_office = 2;
     db.query(`SELECT c.* FROM reservation r
                   JOIN (SELECT car_plate,MAX(return_time) time FROM reservation GROUP BY car_plate) x
                   ON x.car_plate = r.car_plate AND x.time = r.return_time

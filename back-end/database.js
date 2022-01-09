@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: null,
+    password: "123456789",
     database: "car_rental_db"
 });
 

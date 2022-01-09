@@ -6,6 +6,7 @@ import Login from "./Login";
 import AdminHome from "./AdminHome";
 import NewReservation from "./NewReservation";
 import CarsSelection from './CarsSelection';
+import CustomerHome from "./CustomerHome";
 
 function App() {
     return (
@@ -27,3 +28,11 @@ function App() {
 }
 
 export default App;
+
+
+
+{/*<Route exact path="/" element={<Welcome/>}/>*/}
+{/*<Route exact path="/signup" element={<SignUp/>}/>*/}
+{/*<Route exact path="/login" element={<Login/>}/>*/}
+{/*<Route exact path="/customer/*" element={<CustomerHome/>}/>*/}
+{/*<Route exact path="/adminHome" element={<AdminHome/>}/>*/}

@@ -24,7 +24,7 @@ function CarsSelection(){
                 "Content-Type": "application/json",
             }, body: JSON.stringify({
                 pickupDate : pickupDate,
-                pickupLocation: 2
+                pickupLocation: pickupLocation
             })
         }).then(res => {
             if (res.ok) {
@@ -68,11 +68,11 @@ function CarsSelection(){
             body: JSON.stringify({
                     pickupLocation: pickupLocation,
                     pickupDate: pickupDate,
-                    brand : carBrand,
-                    model: carModel,
-                    engine : carEngine,
-                    color: carColor,
-                    price : carPrice
+                    carBrand : carBrand,
+                    carModel: carModel,
+                    carEngine : carEngine,
+                    carColour: carColor,
+                    carPrice : carPrice
             })
         }).then(res => {
             if (res.ok) {

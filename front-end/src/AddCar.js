@@ -25,7 +25,7 @@ function AddCar() {
         navigate('/editCars', {state: {'auth': true}})
     }
     const addCar = () => {
-        if (plate === '' || brand === '' || model === '' || engine === '' || colour === '' || currentOffice === '' || rentPrice === '' || status === '' || pictureUrl === '' || response === '') {
+        if (plate === '' || brand === '' || model === '' || engine === '' || colour === '' || currentOffice === '' || rentPrice === '' || status === '' || pictureUrl === '') {
             setResponse('Please enter all required fields')
         } else {
             fetch("http://localhost:3001/cars", {
@@ -53,6 +53,7 @@ function AddCar() {
                     throw Error(res.status);
             }).then(result => {
                 const response = result.data;
+                console.log('Printed here 2')
                 setResponse(response);
             }).catch(e => {
                 console.log('ERROR 1: ', e);

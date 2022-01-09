@@ -29,4 +29,16 @@ router.post("/", (async (req, res) => {
         }
     });
 }));
+
+router.post("/update", (async (req, res) => {
+    const updatedValue = req.body.updatedValue;
+    const updatedAttribute=req.body.updatedAttribute;
+    const plate=req.body.plate;
+    db.query(`UPDATE CAR SET ${updatedAttribute} = ? WHERE plate = ?`,[updatedValue,plate],(error, rows) => {
+         if (error==null)
+             res.json({data:`Successfully updated ${updatedAttribute} for car ${plate} with value=${updatedValue}`})
+        else
+            res.json({data:`Failed to update ${updatedAttribute} for car ${plate}, error is ${error}`})
+    });
+}));
 module.exports = router;

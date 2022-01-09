@@ -32,8 +32,6 @@ function CarsSelection(){
             } else
                 throw Error(res.status);
         }).then((data) => { setCars(data)
-            console.log(pickupName);
-                console.log(returnName);
         }
         ).catch(e => {
             console.log('ERROR 1: ', e);
@@ -96,6 +94,7 @@ function CarsSelection(){
                 'pickupName':pickupName,
                 'returnDate': returnDate,
                 'returnName':returnName,
+                'returnLocation':returnLocation,
                 'car': cars[checkedIndex]
             }})
     }

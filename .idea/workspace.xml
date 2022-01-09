@@ -19,12 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="......">
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="--">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Cars.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Cars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641762028874</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="--">
+      <created>1641765808820</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641765808820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +201,7 @@
     <MESSAGE value="Home Division" />
     <MESSAGE value=".." />
     <MESSAGE value="......" />
-    <option name="LAST_COMMIT_MESSAGE" value="......" />
+    <MESSAGE value="--" />
+    <option name="LAST_COMMIT_MESSAGE" value="--" />
   </component>
 </project>

@@ -4,14 +4,19 @@ import {Card,ListGroup,Form} from "react-bootstrap";
 
 function CarsSelection(){
     const [cars,setCars] = useState([]);
+    const {state} = useLocation();
+    const {pickupDate,pickupLocation,returnDate,returnLocation}=state;
 
     useEffect(() => {
         fetch("http://localhost:3001/cars", {
-            method: "GET",
+            method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-            },
+            }, body: JSON.stringify({
+                pickupDate : pickupDate,
+                pickupLocation: pickupLocation
+            })
         }).then(res => {
             if (res.ok) {
                 return res.json();
@@ -22,6 +27,8 @@ function CarsSelection(){
             console.log('ERROR 1: ', e);
         })
     }, [])
+
+
 
     const createCard = (card,index) =>{
         return (

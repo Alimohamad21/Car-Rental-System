@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "123456789",
+    "password": null,
     "database": "car_rental_db",
     "host": "localhost",
     "dialect": "mysql"

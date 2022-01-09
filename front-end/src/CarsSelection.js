@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Card, Form, ListGroup} from "react-bootstrap";
-import {useLocation} from "react-router";
+import {useLocation,useNavigate} from "react-router";
 
 function CarsSelection(){
     const [cars,setCars] = useState([]);
@@ -9,8 +9,11 @@ function CarsSelection(){
     const [carEngine,setCarEngine] = useState(null);
     const [carColor,setCarColor] = useState(null);
     const [carPrice,setCarPrice] = useState(null);
+    const [checkedIndex,setChecked] = useState();
     const {state} = useLocation();
     const {pickupDate,pickupLocation,returnDate,returnLocation}=state;
+    const navigate = useNavigate();
+
 
 
     useEffect(() => {
@@ -35,7 +38,6 @@ function CarsSelection(){
     }, [])
 
 
-
     const createCard = (card,index) =>{
         return (
             <Card style={{ width: '18rem' }} key={index}>
@@ -49,66 +51,87 @@ function CarsSelection(){
                     <ListGroup.Item>Status: {card.status}</ListGroup.Item>
                     <ListGroup.Item>Price: {card.rent_price}$/day</ListGroup.Item>
                     </ListGroup>
-                    <Form.Check type='radio' label='Select Car' id={`Select Car ${index}`} name='option'/>
+                    <Form.Check type='radio' label='Select Car' id={`c${index}`} name='option'/>
                     </Card.Body>
             </Card>
         );
     }
 
+    const carSearch = () =>
+    {
+         fetch("http://localhost:3001/search", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                    pickupLocation: pickupLocation,
+                    pickupDate: pickupDate,
+                    brand : carBrand,
+                    model: carModel,
+                    engine : carEngine,
+                    color: carColor,
+                    price : carPrice
+            })
+        }).then(res => {
+            if (res.ok) {
+                return res.json();
+            } else
+                throw Error(res.status);
+        }).then(result => {
+            setCars(result)
+        }).catch(e => {
+            console.log('ERROR 1: ', e);
+        })
+    }
+
+
+
 
     return(
         <div className="carsOptions">
-            <select
-                className="mt-2"
-                onChange={e => setCarBrand(e.target.value)}
-            >
-                <option selected disabled hidden>Brand</option>
-                {cars.map((card, index) =>
-                    <option
-                        key={index}> {card.brand}
-                    </option>
-                )}
-            </select>
-            <select
-                className="mt-2"
-                onChange={e => setCarModel(e.target.value)}
-            >
-                <option selected disabled hidden>Model</option>
-                {cars.map((card,index) =>
-                    <option key={index}>{card.model}</option>
-                )}
-            </select>
-            <select
-                className="mt-2"
-                onChange={e => setCarEngine(e.target.value)}
-            >
-                <option selected disabled hidden>Engine</option>
-                {cars.map((card,index) =>
-                    <option key={index}>{card.engine}</option>
-                )}
-            </select>
-            <select
-                className="mt-2"
-                onChange={e => setCarColor(e.target.value)}
-            >
-                <option selected disabled hidden>Color</option>
-                {cars.map((card,index) =>
-                    <option key={index}>{card.colour}</option>
-                )}
-            </select>
-            <select
-                className="mt-2"
-                onChange={e => setCarPrice(e.target.value)}
-            >
-                <option selected disabled hidden>Price</option>
-                {cars.map((card,index) =>
-                    <option key={index}>{card.rent_price}</option>
-                )}
-            </select>
-            <button>
+
+            <div>
+                <label>Brand: </label>
+                <input type='text' onChange={(event) => {
+                    setCarBrand(event.target.value);
+                }}
+                />
+            </div>
+            <div>
+                <label>Model: </label>
+                <input type='text' onChange={(event) => {
+                    setCarModel(event.target.value);
+                }}
+                />
+            </div>
+            <div>
+                <label>Engine: </label>
+                <input type='text' onChange={(event) => {
+                    setCarEngine(event.target.value);
+                }}
+                />
+            </div>
+            <div>
+                <label>Color: </label>
+                <input type='text' onChange={(event) => {
+                    setCarColor(event.target.value);
+                }}
+                />
+            </div>
+            <div>
+                <label>Max Price: </label>
+                <input type='text' onChange={(event) => {
+                    setCarPrice(event.target.value);
+                }}
+                />
+            </div>
+            <button onClick={carSearch}>
                 Search
             </button>
             {cars.map(createCard)}
+
         </div>
     );
 

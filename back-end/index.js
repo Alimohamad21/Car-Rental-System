@@ -17,6 +17,9 @@ app.use("/locations",locationsRouter)
 const carsRouter = require('./routes/Cars')
 app.use("/cars",carsRouter)
 
+const searchRouter = require('./routes/Search')
+app.use("/search",searchRouter)
+
 app.listen(3001, () => {
     console.log('server running on 3001')
 });

@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function NewReservation() {
     const [locations, setLocations] = useState([]);
+    const [number, setNumber] = useState([]);
     const [pickupLocation, setPickupLocation] = useState("default");
     const [returnLocation, setReturnLocation] = useState("default");
     const [pickupDate, setPickupDate] = useState(new Date());
@@ -26,6 +27,7 @@ function NewReservation() {
                 throw Error(res.status);
         }).then(offices => {
             setLocations(offices.map((office) => office.location))
+            setNumber(offices.map((office) => office.number))
         }).catch(e => {
             console.log('ERROR 1: ', e);
         })
@@ -40,7 +42,7 @@ function NewReservation() {
                     'pickupLocation':pickupLocation,
                     'returnDate': returnDate,
                     'returnLocation':returnLocation
-            }});
+                }});
     };
 
     return (
@@ -53,7 +55,7 @@ function NewReservation() {
                 <option selected disabled hidden>Pickup Location</option>
                 {locations.map((item, key) =>
                     <option
-                        key={key}> {item}
+                        value={number[key]}> {item}
                     </option>
                 )}
             </select>
@@ -63,8 +65,8 @@ function NewReservation() {
                 onChange={e => setReturnLocation(e.target.value)}
             >
                 <option selected disabled hidden>Return Location</option>
-                {locations.map((item) =>
-                    <option key={item}>{item}</option>
+                {locations.map((item,key) =>
+                    <option value={number[key]}>{item}</option>
                 )}
             </select>
             <DatePicker
@@ -93,5 +95,3 @@ function NewReservation() {
 }
 
 export default NewReservation;
-
-

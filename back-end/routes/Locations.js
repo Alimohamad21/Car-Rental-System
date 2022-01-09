@@ -3,7 +3,7 @@ const router = express.Router()
 const db = require('../database');
 
 router.get("/", (async (req, res) => {
-     db.query(`SELECT location FROM office`,(error, rows) => {
+     db.query(`SELECT * FROM office`,(error, rows) => {
         if (rows.length > 0) {
             res.json(rows);
         }

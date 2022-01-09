@@ -36,7 +36,7 @@ function Login() {
                 if (status === 'success') {
                     console.log(`admin is ${isAdmin}`)
                     if (isAdmin)
-                        navigate('/adminHome');
+                        navigate('/adminHome',{state:{'auth':true}})
                     else {
                         navigate('/customer')
                     }

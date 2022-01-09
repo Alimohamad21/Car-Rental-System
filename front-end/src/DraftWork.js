@@ -54,3 +54,14 @@
 {/*</DropdownButton>*/}
 {/*    {locations.map((item) =>*/}
 {/*    )}*/}
+
+
+// const brand = [];
+// const model = [];
+// const engine = [];
+// const colour = 'White';
+// const office = [];
+// const price = [];
+// `SELECT * FROM car WHERE ? IN (brand) OR ? IN (model)
+//                     OR ? IN (engine)OR ? IN (colour)OR ? IN (current_office)OR ? IN (rent_price)`,
+//     [brand,model,engine,colour,office,price]

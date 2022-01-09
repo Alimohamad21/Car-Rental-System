@@ -19,13 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="..">
-      <change afterPath="$PROJECT_DIR$/front-end/src/Payment.js" afterDir="false" />
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

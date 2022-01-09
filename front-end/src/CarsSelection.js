@@ -51,7 +51,8 @@ function CarsSelection(){
                     <ListGroup.Item>Status: {card.status}</ListGroup.Item>
                     <ListGroup.Item>Price: {card.rent_price}$/day</ListGroup.Item>
                     </ListGroup>
-                    <Form.Check type='radio' label='Select Car' id={`c${index}`} name='option'/>
+                    <Form.Check type='radio' label='Select Car' id={`c${index}`} name='option'
+                                onClick={event => setChecked(index)}/>
                     </Card.Body>
             </Card>
         );
@@ -86,8 +87,15 @@ function CarsSelection(){
         })
     }
 
-
-
+    const goToPayment = () => {
+        navigate("/payment",{state:{
+                'pickupDate':pickupDate,
+                'pickupLocation':pickupLocation,
+                'returnDate': returnDate,
+                'returnLocation':returnLocation,
+                'car': cars[checkedIndex]
+            }})
+    }
 
     return(
         <div className="carsOptions">
@@ -131,7 +139,7 @@ function CarsSelection(){
                 Search
             </button>
             {cars.map(createCard)}
-
+            <button onClick={goToPayment}>Continue to Payment</button>
         </div>
     );
 

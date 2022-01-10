@@ -36,7 +36,7 @@ function Reservations() {
     const viewAllReservations = () => {
         console.log("Auth IS")
         console.log(auth)
-        fetch("http://localhost:3001/reservations", {
+        fetch("http://localhost:3001/adminReservations", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -61,7 +61,7 @@ function Reservations() {
     const reservationsAdvancedSearch = () => {
         console.log("Auth IS")
         console.log(auth)
-        fetch("http://localhost:3001/reservations", {
+        fetch("http://localhost:3001/adminReservations", {
             method: "POST",
             body: JSON.stringify({
                 "reservationNo": reservationNo,

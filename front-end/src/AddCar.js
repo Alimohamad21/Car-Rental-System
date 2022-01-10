@@ -28,7 +28,7 @@ function AddCar() {
         if (plate === '' || brand === '' || model === '' || engine === '' || colour === '' || currentOffice === '' || rentPrice === '' || status === '' || pictureUrl === '') {
             setResponse('Please enter all required fields')
         } else {
-            fetch("http://localhost:3001/cars", {
+            fetch("http://localhost:3001/cars/add", {
                 method: "POST",
                 headers: {
                     Accept: "application/json",

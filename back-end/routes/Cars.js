@@ -9,7 +9,7 @@ router.get("/", (async (req, res) => {
         }
     });
 }));
-router.post("/", (async (req, res) => {
+router.post("/add", (async (req, res) => {
     const plate = req.body.plate;
     const brand = req.body.brand;
     const model = req.body.model;

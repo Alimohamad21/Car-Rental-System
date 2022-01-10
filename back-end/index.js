@@ -13,8 +13,8 @@ app.use("/login",loginRouter)
 
 const locationsRouter = require('./routes/Locations')
 app.use("/locations",locationsRouter)
-const reservationsRouter = require('./routes/Reservations')
-app.use("/reservations",reservationsRouter)
+const adminReservationsRouter = require('./routes/AdminReservations')
+app.use("/adminReservations",adminReservationsRouter)
 const carsRouter = require('./routes/Cars')
 app.use("/cars",carsRouter)
 

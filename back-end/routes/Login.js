@@ -21,18 +21,19 @@ router.post("/", (async (req, res) => {
             if (error)
                 console.log(error);
             if (rows.length > 0) {
-                console.log(rows[0].username)
+                const returnedUsername=rows[0].username
                 let username = signInMethod === 'username' ? account : rows[0].username;
                 await db.query('SELECT *  FROM ADMIN WHERE username = ?', [username],
                     (error, rows) => {
                         if (rows.length > 0) {
                             res.json({
                                 'data': 'success',
-                                'admin': true
+                                'admin': true,
                             })
                         } else {
                             res.json({
                                 'data': 'success',
+                                'username': returnedUsername,
                                 'admin': false
                             })
                         }

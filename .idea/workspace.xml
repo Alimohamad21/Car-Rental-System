@@ -19,16 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="Validation of Radio">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_1_2022_6_45_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_1_2022_6_45_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_40_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_40_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_48_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_59_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="Merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Reservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Reservations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641774458114</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merged">
+      <created>1641784065285</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1641784065285</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +226,8 @@
     <MESSAGE value="......" />
     <MESSAGE value="--" />
     <MESSAGE value="Validation of Radio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validation of Radio" />
+    <MESSAGE value="Merged" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1899" height="7" key="GridCell.Tab.0.bottom" timestamp="1641783218080">
@@ -241,5 +246,13 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="7" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218079" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641784075306">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641784075306" />
+    <state x="2587" y="253" width="585" height="534" key="find.popup" timestamp="1641785164684">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2587" y="253" width="585" height="534" key="find.popup/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641785164684" />
   </component>
 </project>

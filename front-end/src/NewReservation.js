@@ -15,12 +15,12 @@ function NewReservation() {
     const [pickupDate, setPickupDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickupDate);
     let [error, setError] = useState('');
-    // const {state} = useLocation();
-    // const {username} = state;
-    let username ="adham";
+     const {state} = useLocation();
+     const username = state.username;
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log(username)
         fetch("http://localhost:3001/locations", {
             method: "GET",
             headers: {
@@ -62,7 +62,7 @@ function NewReservation() {
         setReturnLocation(number[key]);
         setReturnName(locations[key]);
     }
-    return (
+    return state==null?'unauthorized':(
         <div className="new-reservation">
             <select
                 id="pickup-office"

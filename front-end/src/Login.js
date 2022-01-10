@@ -38,7 +38,7 @@ function Login() {
                     if (isAdmin)
                         navigate('/adminHome',{state:{'auth':true}})
                     else {
-                        navigate('/reservation')
+                        navigate('/reservation',{state:{'username':result.username}})
                     }
                 } else {
                     setError(status);

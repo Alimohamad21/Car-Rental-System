@@ -6,7 +6,6 @@ import Button from "bootstrap/js/src/button";
 
 function Reservations() {
     const {state} = useLocation();
-    const {auth} = state;
     const navigate = useNavigate();
     const [reservations, setReservations] = useState([]);
     const [username, setUsername] = useState('');
@@ -34,8 +33,6 @@ function Reservations() {
         navigate('/addCars', {state: {'auth': true}})
     }
     const viewAllReservations = () => {
-        console.log("Auth IS")
-        console.log(auth)
         fetch("http://localhost:3001/adminReservations", {
             method: "POST",
             headers: {
@@ -59,8 +56,6 @@ function Reservations() {
         console.log(`$AFTER`)
     }
     const reservationsAdvancedSearch = () => {
-        console.log("Auth IS")
-        console.log(auth)
         fetch("http://localhost:3001/adminReservations", {
             method: "POST",
             body: JSON.stringify({

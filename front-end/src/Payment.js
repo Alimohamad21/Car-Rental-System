@@ -1,44 +1,54 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {Card, Button, ListGroup,Form} from "react-bootstrap";
+import {Card, Button, ListGroup, Form} from "react-bootstrap";
 import {useLocation} from "react-router";
 import moment from "moment";
 
 function Payment() {
-    const [payment,setPayment] = useState(null);
+    const [payment, setPayment] = useState("default");
+    let [error, setError] = useState('');
     const {state} = useLocation();
-    const {pickupDate,pickupName,returnDate,returnName,returnLocation,username,car}=state;
+    const {pickupDate, pickupName, returnDate, returnName, returnLocation, username, car} = state;
     const navigate = useNavigate();
-    let days = (returnDate.getTime() - pickupDate.getTime()) /  (1000 * 3600 * 24);
+    let days = (returnDate.getTime() - pickupDate.getTime()) / (1000 * 3600 * 24);
     let totalCost = car.rent_price * days;
 
     const Reservation = () => {
-        fetch("http://localhost:3001/confirm", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            }, body: JSON.stringify({
-                username: username,
-                car_plate:car.plate,
-                pickup_time: moment(pickupDate).format('YYYY-MM-DD'),
-                return_time: moment(returnDate).format('YYYY-MM-DD'),
-                return_office: returnLocation,
-                payment: payment
+        if (payment === 'default')
+            setError('Please Choose Payment Type');
+        else {
+            fetch("http://localhost:3001/confirm", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                }, body: JSON.stringify({
+                    username: username,
+                    car_plate: car.plate,
+                    pickup_time: moment(pickupDate).format('YYYY-MM-DD'),
+                    return_time: moment(returnDate).format('YYYY-MM-DD'),
+                    return_office: returnLocation,
+                    payment: payment
+                })
+            }).then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else
+                    throw Error(res.status);
+            }).then((data) => {
+                    if(data.error!=null)
+                   setError(data.error)
+                else
+                    setError(`Reserved car ${car.brand} ${car.model} for ${moment(pickupDate).format('YYYY-MM-DD')} successfully`)
+                }
+            ).catch(e => {
+                console.log('ERROR 1: ', e);
             })
-        }).then(res => {
-            if (res.ok) {
-                return res.json();
-            } else
-                throw Error(res.status);
-        }).then((data) => { navigate("/") }
-        ).catch(e => {
-            console.log('ERROR 1: ', e);
-        })
+        }
     }
 
     return (
-        <div className="receipt" style={{width:"20em"}}>
+        <div className="receipt" style={{width: "20em"}}>
             <Card className="text-center">
                 <Card.Header>Reservation Receipt</Card.Header>
                 <Card.Body>
@@ -59,9 +69,11 @@ function Payment() {
                         label='Pay On Pickup'
                         id='1'
                         name='option'
-                        defaultChecked={true}
+                        // defaultChecked={true}
                         onClick={
-                            event => {setPayment("pay on pickup")}
+                            event => {
+                                setPayment("pay on pickup")
+                            }
                         }
                     />
                     <Form.Check
@@ -70,10 +82,12 @@ function Payment() {
                         id='2'
                         name='option'
                         onClick={
-                            event => {setPayment("paid")}
+                            event => {
+                                setPayment("paid")
+                            }
                         }
                     />
-                    <input type='text' name='option'/>
+                    <div>{error}</div>
                     <br/>
                     <Button variant="primary" onClick={Reservation}>Reserve</Button>
                 </Card.Body>
@@ -82,4 +96,4 @@ function Payment() {
     );
 }
 
-export default Payment
+export default Payment;

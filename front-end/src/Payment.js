@@ -11,6 +11,7 @@ import moment from "moment";
      const navigate = useNavigate();
      let days = (returnDate.getTime() - pickupDate.getTime()) /  (1000 * 3600 * 24);
      let totalCost = car.rent_price * days;
+     let variable = null;
 
     const Reservation = () => {
         fetch("http://localhost:3001/confirm", {

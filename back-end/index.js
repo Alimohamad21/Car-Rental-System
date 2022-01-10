@@ -13,6 +13,10 @@ app.use("/login",loginRouter)
 
 const locationsRouter = require('./routes/Locations')
 app.use("/locations",locationsRouter)
+const reservationsRouter = require('./routes/Reservations')
+app.use("/reservations",reservationsRouter)
+const carsRouter = require('./routes/Cars')
+app.use("/cars",carsRouter)
 
 app.listen(3001, () => {
     console.log('server running on 3001')

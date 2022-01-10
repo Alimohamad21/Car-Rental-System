@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="Validation of Radio">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_1_2022_6_45_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_1_2022_6_45_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_40_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_40_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_48_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_1_2022_7_59_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/DraftWork.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Reservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerReservations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Welcome.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="23G18MpjlNPZ9aZ4IPe7nYQmF50" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -211,6 +211,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initializing" />
@@ -222,5 +223,23 @@
     <MESSAGE value="--" />
     <MESSAGE value="Validation of Radio" />
     <option name="LAST_COMMIT_MESSAGE" value="Validation of Radio" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="7" key="GridCell.Tab.0.bottom" timestamp="1641783218080">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="7" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218080" />
+    <state width="1899" height="7" key="GridCell.Tab.0.center" timestamp="1641783218079">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="7" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218079" />
+    <state width="1899" height="7" key="GridCell.Tab.0.left" timestamp="1641783218079">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="7" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218079" />
+    <state width="1899" height="7" key="GridCell.Tab.0.right" timestamp="1641783218079">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="7" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218079" />
   </component>
 </project>

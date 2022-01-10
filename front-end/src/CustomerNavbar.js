@@ -1,11 +1,9 @@
 import {useNavigate} from "react-router-dom";
 
 const CustomerNavbar = () => {
-
+    const username = "adham";
     const navigate = useNavigate();
-    // const {username} = state;
 
-    const username ="adham";
     const goToReservations = () => {
         navigate('/reservations',{state:{
                 'username':username
@@ -13,7 +11,7 @@ const CustomerNavbar = () => {
     }
   return (
     <nav className="customer-navbar">
-      <h1>Hello @{username}</h1>
+      <h1>Hello {username}</h1>
       <button onClick={goToReservations}>Reservations</button>
     </nav>
   );

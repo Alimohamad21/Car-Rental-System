@@ -32,10 +32,7 @@ function CarsSelection(){
                 return res.json();
             } else
                 throw Error(res.status);
-        }).then((data) => { setCars(data)
-            console.log(pickupName);
-                console.log(returnName);
-        }
+        }).then((data) => {setCars(data)}
         ).catch(e => {
             console.log('ERROR 1: ', e);
         })

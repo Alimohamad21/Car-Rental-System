@@ -1,13 +1,19 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useLocation} from "react-router";
 
 
-function Reservations() {
+function CustomerReservations() {
+    const [number,setNumber] = useState([]);
+    const [carBrand,setCarBrand] = useState(null);
+    const [carModel,setCarModel] = useState(null);
+    const [carEngine,setCarEngine] = useState(null);
+    const [carColor,setCarColor] = useState(null);
+    const [carPrice,setCarPrice] = useState(null);
     const {state} = useLocation();
     const {username} = state;
 
     useEffect(() => {
-        fetch("http://localhost:3001/cars", {
+        fetch("http://localhost:3001/reservations", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -32,4 +38,4 @@ function Reservations() {
     );
 }
 
-export default Reservations;
+export default CustomerReservations;

@@ -13,7 +13,7 @@ function Login() {
         } else if (passwordInput === '') {
             setError('Please enter a password')
         } else {
-            await fetch("http://localhost:3001/login", {
+            fetch("http://localhost:3001/login", {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -36,7 +36,7 @@ function Login() {
                 if (status === 'success') {
                     console.log(`admin is ${isAdmin}`)
                     if (isAdmin)
-                        navigate('/adminHome');
+                        navigate('/adminHome',{state:{'auth':true}})
                     else {
                         navigate('/reservation')
                     }
@@ -52,7 +52,7 @@ function Login() {
     return (
         <div className='login'>
             <h1>Login</h1>
-            <label>Email</label>
+            <label>Please enter email or username</label>
             <input type='email' onChange={(event) => {
                 setAccount(event.target.value);
             }}/>

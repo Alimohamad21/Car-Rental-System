@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import {useNavigate} from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import le from "react-datepicker";
+import {useLocation} from "react-router";
 
 function NewReservation() {
     const [locations, setLocations] = useState([]);
@@ -14,7 +15,9 @@ function NewReservation() {
     const [pickupDate, setPickupDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickupDate);
     let [error, setError] = useState('');
-    let username = [];
+    // const {state} = useLocation();
+    // const {username} = state;
+    let username ="adham";
     const navigate = useNavigate();
 
     useEffect(() => {

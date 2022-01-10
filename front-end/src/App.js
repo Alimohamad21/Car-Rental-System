@@ -7,7 +7,7 @@ import AdminHome from "./AdminHome";
 import NewReservation from "./NewReservation";
 import CarsSelection from './CarsSelection';
 import Payment from "./Payment";
-import Reservations from "./Reservations";
+import CustomerReservations from "./CustomerReservations";
 import CustomerHome from "./CustomerHome";
 
 function App() {
@@ -19,12 +19,12 @@ function App() {
                         <Route exact path="/" element={<Welcome/>}/>
                         <Route exact path="/signup" element={<SignUp/>}/>
                         <Route exact path="/login" element={<Login/>}/>
-                        <Route exact path="/reservation" element={<NewReservation/>}/>
                         <Route exact path="/adminHome" element={<AdminHome/>}/>
+                        <Route exact path="/customerHome" element={<CustomerHome/>}/>
+                        <Route exact path="/reservation" element={<NewReservation/>}/>
+                        <Route exact path="/customerReservations" element={<CustomerReservations/>}/>
                         <Route exact path="/carSelect" element={<CarsSelection/>}/>
                         <Route exact path="/payment" element={<Payment/>}/>
-                        <Route exact path="/reservations" element={<Reservations/>}/>
-                        <Route exact path="/customerHome" element={<CustomerHome/>}/>
                     </Routes>
                 </div>
             </div>
@@ -33,11 +33,3 @@ function App() {
 }
 
 export default App;
-
-
-
-{/*<Route exact path="/" element={<Welcome/>}/>*/}
-{/*<Route exact path="/signup" element={<SignUp/>}/>*/}
-{/*<Route exact path="/login" element={<Login/>}/>*/}
-{/*<Route exact path="/customer/*" element={<CustomerHome/>}/>*/}
-{/*<Route exact path="/adminHome" element={<AdminHome/>}/>*/}

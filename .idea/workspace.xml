@@ -19,13 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="Merged">
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="l adham">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/Reservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Reservations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641784065285</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="l adham">
+      <created>1641786128180</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641786128180</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +232,8 @@
     <MESSAGE value="--" />
     <MESSAGE value="Validation of Radio" />
     <MESSAGE value="Merged" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged" />
+    <MESSAGE value="l adham" />
+    <option name="LAST_COMMIT_MESSAGE" value="l adham" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1899" height="7" key="GridCell.Tab.0.bottom" timestamp="1641783218080">

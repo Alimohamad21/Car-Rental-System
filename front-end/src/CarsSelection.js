@@ -4,11 +4,11 @@ import {useLocation,useNavigate} from "react-router";
 
 function CarsSelection(){
     const [cars,setCars] = useState([]);
-    const [carBrand,setCarBrand] = useState(null);
-    const [carModel,setCarModel] = useState(null);
-    const [carEngine,setCarEngine] = useState(null);
-    const [carColor,setCarColor] = useState(null);
-    const [carPrice,setCarPrice] = useState(null);
+    const [carBrand,setCarBrand] = useState('');
+    const [carModel,setCarModel] = useState('');
+    const [carEngine,setCarEngine] = useState('');
+    const [carColor,setCarColor] = useState('');
+    const [carPrice,setCarPrice] = useState('');
     const [checkedIndex,setChecked] = useState(-1);
     let [error, setError] = useState('');
     const {state} = useLocation();
@@ -18,24 +18,7 @@ function CarsSelection(){
 
 
     useEffect(() => {
-        fetch("http://localhost:3001/cars", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            }, body: JSON.stringify({
-                pickupDate : pickupDate,
-                pickupLocation: pickupLocation
-            })
-        }).then(res => {
-            if (res.ok) {
-                return res.json();
-            } else
-                throw Error(res.status);
-        }).then((data) => {setCars(data)}
-        ).catch(e => {
-            console.log('ERROR 1: ', e);
-        })
+        carSearch()
     }, [])
 
 

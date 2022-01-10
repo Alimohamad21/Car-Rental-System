@@ -18,7 +18,6 @@ function NewReservation() {
      const {state} = useLocation();
      const username = state.username;
     const navigate = useNavigate();
-
     useEffect(() => {
         console.log(username)
         fetch("http://localhost:3001/locations", {

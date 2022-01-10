@@ -66,7 +66,7 @@ router.post("/", (async (req, res) => {
         conditions+=' AND c.rent_price <= ? '
         valueList.push(parseInt(price))
     }
-    db.query(`SELECT c.* FROM reservation r
+    db.query(`SELECT DISTINCT c.* FROM reservation r
                   JOIN (SELECT car_plate,MAX(return_time) time FROM reservation GROUP BY car_plate) x
                   ON x.car_plate = r.car_plate AND x.time = r.return_time
                   RIGHT JOIN car c ON c.plate = r.car_plate

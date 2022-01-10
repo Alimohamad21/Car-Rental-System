@@ -18,6 +18,18 @@ app.use("/adminReservations",adminReservationsRouter)
 const carsRouter = require('./routes/Cars')
 app.use("/cars",carsRouter)
 
+const carsRouter = require('./routes/Cars')
+app.use("/cars",carsRouter)
+
+const searchRouter = require('./routes/Search')
+app.use("/search",searchRouter)
+
+const confirmRouter = require('./routes/Confirm')
+app.use("/confirm",confirmRouter)
+
+const reservationsRouter = require('./routes/Reservations')
+app.use("/reservations",reservationsRouter)
+
 app.listen(3001, () => {
     console.log('server running on 3001')
 });

@@ -13,7 +13,7 @@ function Login() {
         } else if (passwordInput === '') {
             setError('Please enter a password')
         } else {
-            await fetch("http://localhost:3001/login", {
+            fetch("http://localhost:3001/login", {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -38,7 +38,7 @@ function Login() {
                     if (isAdmin)
                         navigate('/adminHome',{state:{'auth':true}})
                     else {
-                        navigate('/customer')
+                        navigate('/reservation')
                     }
                 } else {
                     setError(status);

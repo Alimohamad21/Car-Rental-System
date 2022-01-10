@@ -1,0 +1,143 @@
+Index: front-end/src/Login.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {useState} from \"react\";\r\nimport {useNavigate} from \"react-router\";\r\n\r\n\r\nfunction Login() {\r\n    const [accountInput, setAccount] = useState([]);\r\n    const [passwordInput, setPassword] = useState([]);\r\n    let [error, setError] = useState([]);\r\n    const navigate = useNavigate();\r\n\r\n    const getLocations = async () => {\r\n        let locations = [];\r\n        await fetch(\"http://localhost:3001/locations\", {\r\n            method: \"GET\",\r\n            headers: {\r\n                Accept: \"application/json\",\r\n                \"Content-Type\": \"application/json\",\r\n            },\r\n        }).then(res => {\r\n            if (res.ok) {\r\n                console.log()\r\n                return res.json();\r\n            } else\r\n                throw Error(res.status);\r\n        }).then(offices => {\r\n            for (const office of offices) {\r\n                locations.push(office.location)\r\n            }\r\n        }).catch(e => {\r\n            console.log('ERROR 1: ', e);\r\n        })\r\n        return locations;\r\n    }\r\n\r\n    const login = async () => {\r\n        if (accountInput == '') {\r\n            setError('Please enter email or username')\r\n        } else if (passwordInput == '') {\r\n            setError('Please enter a password')\r\n        } else {\r\n            await fetch(\"http://localhost:3001/login\", {\r\n                method: \"POST\",\r\n                headers: {\r\n                    Accept: \"application/json\",\r\n                    \"Content-Type\": \"application/json\",\r\n                },\r\n                body: JSON.stringify({\r\n                    account: accountInput,\r\n                    password: passwordInput\r\n                }),\r\n            }).then(res => {\r\n                if (res.ok) {\r\n                    console.log()\r\n                    return res.json();\r\n                } else\r\n                    throw Error(res.status);\r\n            }).then( async result => {\r\n                const status = result.data;\r\n                const isAdmin = result.admin;\r\n                console.log(`status is ${result.data}`)\r\n                if (status === 'success') {\r\n                    console.log(`admin is ${isAdmin}`)\r\n                    if (isAdmin)\r\n                        navigate('/adminHome');\r\n                    else {\r\n                        getLocations().then(temp => {\r\n                            navigate('/customer', {state: {offices:temp}})\r\n                        });\r\n\r\n                    }\r\n                } else {\r\n                    setError(status);\r\n                    console.log(error);\r\n                }\r\n            }).catch(e => {\r\n                console.log('ERROR 1: ', e);\r\n            })\r\n        }\r\n    }\r\n    return (\r\n        <div className='login'>\r\n            <h1>Login</h1>\r\n            <label>Please enter email or username</label>\r\n            <input type='email' onChange={(event) => {\r\n                setAccount(event.target.value);\r\n            }}/>\r\n            <label>Password</label>\r\n            <input type='password' onChange={(event) => {\r\n                setPassword(event.target.value);\r\n            }}/>\r\n            <button onClick={login}>Login</button>\r\n            <div>{error}</div>\r\n        </div>\r\n    );\r\n}\r\n\r\nexport default Login;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/front-end/src/Login.js b/front-end/src/Login.js
+--- a/front-end/src/Login.js	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
++++ b/front-end/src/Login.js	(date 1641663927442)
+@@ -80,7 +80,7 @@
+     return (
+         <div className='login'>
+             <h1>Login</h1>
+-            <label>Please enter email or username</label>
++            <label>Email</label>
+             <input type='email' onChange={(event) => {
+                 setAccount(event.target.value);
+             }}/>
+Index: .idea/jsLibraryMappings.xml
+===================================================================
+diff --git a/.idea/jsLibraryMappings.xml b/.idea/jsLibraryMappings.xml
+deleted file mode 100644
+--- a/.idea/jsLibraryMappings.xml	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
++++ /dev/null	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="JavaScriptLibraryMappings">
+-    <includedPredefinedLibrary name="Node.js Core" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: back-end/database.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const mysql = require('mysql2');\r\n\r\nconst db = mysql.createConnection({\r\n    host: \"localhost\",\r\n    user: \"root\",\r\n    password: null,\r\n    database: \"car_rental_db\"\r\n});\r\n\r\ndb.connect((err) => {\r\n    if(err){\r\n        throw err;\r\n    }\r\n    console.log(\"database connected..\");\r\n})\r\n\r\nmodule.exports = db;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/database.js b/back-end/database.js
+--- a/back-end/database.js	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
++++ b/back-end/database.js	(date 1641663649802)
+@@ -3,7 +3,7 @@
+ const db = mysql.createConnection({
+     host: "localhost",
+     user: "root",
+-    password: null,
++    password: "123456789",
+     database: "car_rental_db"
+ });
+ 
+Index: back-end/config/config.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"development\": {\r\n    \"username\": \"root\",\r\n    \"password\": null,\r\n    \"database\": \"car_rental_db\",\r\n    \"host\": \"localhost\",\r\n    \"dialect\": \"mysql\"\r\n  },\r\n  \"test\": {\r\n    \"username\": \"root\",\r\n    \"password\": null,\r\n    \"database\": \"database_test\",\r\n    \"host\": \"127.0.0.1\",\r\n    \"dialect\": \"mysql\"\r\n  },\r\n  \"production\": {\r\n    \"username\": \"root\",\r\n    \"password\": null,\r\n    \"database\": \"database_production\",\r\n    \"host\": \"127.0.0.1\",\r\n    \"dialect\": \"mysql\"\r\n  }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/config/config.json b/back-end/config/config.json
+--- a/back-end/config/config.json	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
++++ b/back-end/config/config.json	(date 1641663649931)
+@@ -1,7 +1,7 @@
+ {
+   "development": {
+     "username": "root",
+-    "password": null,
++    "password": "123456789",
+     "database": "car_rental_db",
+     "host": "localhost",
+     "dialect": "mysql"
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"39e9fb92-3139-4f9a-8f53-6aeeef34890c\" name=\"Default Changelist\" comment=\"Routing And Navigation\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/database.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/database.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/node_modules/.package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/node_modules/.package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/package.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/package.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/App.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/Home.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/CustomerHome.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/SignUp.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/SignUp.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/Welcome.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/Welcome.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/front-end/src/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-end/src/index.js\" afterDir=\"false\" />\r\n    <list default=\"true\" id=\"39e9fb92-3139-4f9a-8f53-6aeeef34890c\" name=\"Default Changelist\" comment=\"admin login, admin view, sign up and login changes according to new schema\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"23G18MpjlNPZ9aZ4IPe7nYQmF50\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"javascript.nodejs.core.library.configured.version\" value=\"16.13.1\" />\r\n    <property name=\"javascript.nodejs.core.library.typings.version\" value=\"16.11.19\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/front-end/src\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\adham\\WebstormProjects\\FinalProject\\front-end\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"index.js\" type=\"NodeJSConfigurationType\" temporary=\"true\" nameIsGenerated=\"true\" path-to-js-file=\"$PROJECT_DIR$/back-end/index.js\" working-dir=\"$PROJECT_DIR$/back-end\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Node.js.index.js\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"39e9fb92-3139-4f9a-8f53-6aeeef34890c\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1641345448917</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1641345448917</updated>\r\n      <workItem from=\"1641345453285\" duration=\"8583000\" />\r\n      <workItem from=\"1641367028503\" duration=\"13607000\" />\r\n      <workItem from=\"1641390527025\" duration=\"2520000\" />\r\n      <workItem from=\"1641408733043\" duration=\"7761000\" />\r\n      <workItem from=\"1641453085861\" duration=\"961000\" />\r\n      <workItem from=\"1641455814874\" duration=\"7616000\" />\r\n      <workItem from=\"1641471084649\" duration=\"2504000\" />\r\n      <workItem from=\"1641490853232\" duration=\"149000\" />\r\n      <workItem from=\"1641498404398\" duration=\"2021000\" />\r\n      <workItem from=\"1641501805762\" duration=\"340000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initializing\">\r\n      <created>1641416320016</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1641416320016</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ORDER\">\r\n      <list>\r\n        <option value=\"0\" />\r\n        <option value=\"2\" />\r\n        <option value=\"3\" />\r\n        <option value=\"1\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"test\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initializing\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"initializing\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1641515322542\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641515322542\" />\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.center\" timestamp=\"1641515322542\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641515322542\" />\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.left\" timestamp=\"1641515322542\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641515322542\" />\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.right\" timestamp=\"1641515322542\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1899\" height=\"282\" key=\"GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641515322542\" />\r\n    <state x=\"2472\" y=\"253\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1641516821843\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2472\" y=\"253\" key=\"Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641516821843\" />\r\n    <state x=\"2697\" y=\"434\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1641506916651\">\r\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"2697\" y=\"434\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040\" timestamp=\"1641506916651\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a850b1ad90f89e843f6b4ae927fd437730fce157)
++++ b/.idea/workspace.xml	(date 1641663868307)
+@@ -19,20 +19,11 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="Routing And Navigation">
++    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="initializing">
++      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package-lock.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerHome.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/SignUp.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Welcome.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/front-end/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/index.js" afterDir="false" />
+-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="admin login, admin view, sign up and login changes according to new schema">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -160,36 +151,9 @@
+         </entry>
+       </map>
+     </option>
+-    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initializing" />
+     <option name="LAST_COMMIT_MESSAGE" value="initializing" />
+   </component>
+-  <component name="WindowStateProjectService">
+-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1641515322542">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641515322542" />
+-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1641515322542">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641515322542" />
+-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1641515322542">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641515322542" />
+-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1641515322542">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641515322542" />
+-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641516821843">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641516821843" />
+-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1641506916651">
+-      <screen x="1920" y="0" width="1920" height="1040" />
+-    </state>
+-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641506916651" />
+-  </component>
+ </project>
+\ No newline at end of file

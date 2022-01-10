@@ -5,6 +5,7 @@ const db = require('../database');
 router.post("/", (async (req, res) => {
     const pickup_time = req.body.pickupDate;
     const pickup_office = req.body.pickupLocation;
+
     db.query(`SELECT c.* FROM reservation r
                   JOIN (SELECT car_plate,MAX(return_time) time FROM reservation GROUP BY car_plate) x
                   ON x.car_plate = r.car_plate AND x.time = r.return_time
@@ -19,6 +20,4 @@ router.post("/", (async (req, res) => {
             }
         });
 }));
-
-
 module.exports = router;

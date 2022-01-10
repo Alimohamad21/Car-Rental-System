@@ -9,9 +9,10 @@ function CarsSelection(){
     const [carEngine,setCarEngine] = useState(null);
     const [carColor,setCarColor] = useState(null);
     const [carPrice,setCarPrice] = useState(null);
-    const [checkedIndex,setChecked] = useState();
+    const [checkedIndex,setChecked] = useState(-1);
+    let [error, setError] = useState('');
     const {state} = useLocation();
-    const {pickupDate,pickupLocation,returnDate,returnLocation,pickupName,returnName}=state;
+    const {pickupDate,pickupLocation,returnDate,returnLocation,pickupName,returnName, username} = state;
     const navigate = useNavigate();
 
 
@@ -32,6 +33,8 @@ function CarsSelection(){
             } else
                 throw Error(res.status);
         }).then((data) => { setCars(data)
+            console.log(pickupName);
+                console.log(returnName);
         }
         ).catch(e => {
             console.log('ERROR 1: ', e);
@@ -53,7 +56,8 @@ function CarsSelection(){
                     <ListGroup.Item>Price: {card.rent_price}$/day</ListGroup.Item>
                     </ListGroup>
                     <Form.Check type='radio' label='Select Car' id={`c${index}`} name='option'
-                                onClick={event => setChecked(index)}/>
+                                onClick={event => setChecked(index)}
+                    />
                     </Card.Body>
             </Card>
         );
@@ -89,14 +93,19 @@ function CarsSelection(){
     }
 
     const goToPayment = () => {
-        navigate("/payment",{state:{
-                'pickupDate':pickupDate,
-                'pickupName':pickupName,
-                'returnDate': returnDate,
-                'returnName':returnName,
-                'returnLocation':returnLocation,
-                'car': cars[checkedIndex]
-            }})
+        if (checkedIndex === -1)
+            setError('Please Select Car');
+        else {
+            navigate("/payment",{state:{
+                    'pickupDate':pickupDate,
+                    'pickupName':pickupName,
+                    'returnDate': returnDate,
+                    'returnName':returnName,
+                    'returnLocation':returnLocation,
+                    'username':username,
+                    'car': cars[checkedIndex]
+                }})
+        }
     }
 
     return(
@@ -141,6 +150,7 @@ function CarsSelection(){
                 Search
             </button>
             {cars.map(createCard)}
+            <div>{error}</div>
             <button onClick={goToPayment}>Continue to Payment</button>
         </div>
     );

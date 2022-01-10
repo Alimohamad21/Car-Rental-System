@@ -19,10 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="confirmation + receipt">
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="--">
+      <change afterPath="$PROJECT_DIR$/back-end/routes/Reservations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/Reservations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Cars.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Cars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Draft.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/routes/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/routes/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +54,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -145,18 +153,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641765808820</updated>
     </task>
-    <task id="LOCAL-00006" summary="confirmation + receipt">
-      <created>1641772147859</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1641772147859</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -204,7 +215,6 @@
     <MESSAGE value=".." />
     <MESSAGE value="......" />
     <MESSAGE value="--" />
-    <MESSAGE value="confirmation + receipt" />
-    <option name="LAST_COMMIT_MESSAGE" value="confirmation + receipt" />
+    <option name="LAST_COMMIT_MESSAGE" value="--" />
   </component>
 </project>

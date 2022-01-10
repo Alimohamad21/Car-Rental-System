@@ -3,11 +3,6 @@ const router = express.Router()
 const db = require('../database');
 
 router.post("/", (async (req, res) => {
-    // const brand = '';
-    // const model = '';
-    // const engine = '';
-    // const colour = 'Red';
-    // const price = '22';
     const pickup_time = req.body.pickupDate;
     const pickup_office = req.body.pickupLocation;
     const brand = req.body.carBrand;

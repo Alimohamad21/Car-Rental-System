@@ -4,14 +4,13 @@ import {Card, Button, ListGroup,Form} from "react-bootstrap";
 import {useLocation} from "react-router";
 import moment from "moment";
 
- function Payment() {
-     const [payment,setPayment] = useState(null);
-     const {state} = useLocation();
-     const {pickupDate,pickupName,returnDate,returnName,returnLocation,username,car}=state;
-     const navigate = useNavigate();
-     let days = (returnDate.getTime() - pickupDate.getTime()) /  (1000 * 3600 * 24);
-     let totalCost = car.rent_price * days;
-     let variable = null;
+function Payment() {
+    const [payment,setPayment] = useState(null);
+    const {state} = useLocation();
+    const {pickupDate,pickupName,returnDate,returnName,returnLocation,username,car}=state;
+    const navigate = useNavigate();
+    let days = (returnDate.getTime() - pickupDate.getTime()) /  (1000 * 3600 * 24);
+    let totalCost = car.rent_price * days;
 
     const Reservation = () => {
         fetch("http://localhost:3001/confirm", {
@@ -71,7 +70,7 @@ import moment from "moment";
                         id='2'
                         name='option'
                         onClick={
-                        event => {setPayment("paid")}
+                            event => {setPayment("paid")}
                         }
                     />
                     <input type='text' name='option'/>
@@ -83,6 +82,4 @@ import moment from "moment";
     );
 }
 
-export default Payment;
-
-
+export default Payment

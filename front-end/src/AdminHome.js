@@ -1,6 +1,8 @@
 import React from "react";
 import {useLocation, useNavigate} from "react-router";
-import {Navbar,Container,Nav} from 'react-bootstrap';
+import {Navbar, Container, Nav, Card, ListGroup, Form} from 'react-bootstrap';
+import './index.css';
+
 function AdminHome() {
     const {state}=useLocation()
     const navigate = useNavigate();
@@ -26,12 +28,17 @@ function AdminHome() {
                             <Nav.Link onClick={addCarNavigator}>Add Car</Nav.Link>
                         </Nav>
                         <Nav className="float-end">
-                            <Nav.Link href="/login">Log out</Nav.Link>
+                            <Nav.Link href="/">Log out</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <h1>Admin Home</h1>
+            <h1 className="text-center">Admin Home</h1>
+            <Card style={{ width: '118rem',height:'118rem' }}>
+                <Card.Img variant="top" src='https://www.teslarati.com/wp-content/uploads/2018/08/tesla-roadster-matte-black-1-e1534872442960.jpeg'/>
+                <Card.Body>
+                </Card.Body>
+            </Card>
         </div >
 
     );

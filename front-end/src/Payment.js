@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {Card, Button, ListGroup, Form} from "react-bootstrap";
 import {useLocation} from "react-router";
 import moment from "moment";
+import './index.css';
 
 function Payment() {
     const [payment, setPayment] = useState("default");
@@ -36,10 +37,7 @@ function Payment() {
                 } else
                     throw Error(res.status);
             }).then((data) => {
-                    if(data.error!=null)
-                   setError(data.error)
-                else
-                    setError(`Reserved car ${car.brand} ${car.model} for ${moment(pickupDate).format('YYYY-MM-DD')} successfully`)
+                navigate('/confirmation',{state:{'username':username,'confirmationMessage':`Reserved car ${car.brand} ${car.model} for ${moment(pickupDate).format('YYYY-MM-DD')} successfully`}})
                 }
             ).catch(e => {
                 console.log('ERROR 1: ', e);

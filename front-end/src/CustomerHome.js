@@ -6,6 +6,7 @@ import NewReservation from "./NewReservation";
 import CarsSelection from "./CarsSelection";
 import Payment from "./Payment";
 import CustomerReservations from "./CustomerReservations";
+import './index.css';
 
 function CustomerHome() {
     // const {state} = useLocation();

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Card, Form, ListGroup} from "react-bootstrap";
 import {useLocation,useNavigate} from "react-router";
+import './index.css';
 
 function CarsSelection(){
     const [cars,setCars] = useState([]);
@@ -89,8 +90,8 @@ function CarsSelection(){
     }
 
     return(
-        <div className="carsOptions">
-
+        <div className="left-margin">
+            <h1>Select Car</h1>
             <div>
                 <label>Brand: </label>
                 <input type='text' onChange={(event) => {
@@ -126,12 +127,12 @@ function CarsSelection(){
                 }}
                 />
             </div>
-            <button onClick={carSearch}>
+            <button   onClick={carSearch}>
                 Search
             </button>
             {cars.map(createCard)}
             <div>{error}</div>
-            <button onClick={goToPayment}>Continue to Payment</button>
+            <button  onClick={goToPayment}>Continue to Payment</button>
         </div>
     );
 

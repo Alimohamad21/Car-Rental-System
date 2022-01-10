@@ -19,9 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="l adham v2">
+    <list default="true" id="39e9fb92-3139-4f9a-8f53-6aeeef34890c" name="Default Changelist" comment="l adham v3">
+      <change afterPath="$PROJECT_DIR$/front-end/src/Confirmations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/AddCar.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/AddCar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/AdminHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CarsSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CarsSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/CustomerReservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/CustomerReservations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/EditCars.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/EditCars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/NewReservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/NewReservation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Reservations.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Reservations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/Welcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641791644252</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="l adham v3">
+      <created>1641793367729</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641793367729</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +261,8 @@
     <MESSAGE value="Merged" />
     <MESSAGE value="l adham" />
     <MESSAGE value="l adham v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="l adham v2" />
+    <MESSAGE value="l adham v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="l adham v3" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1899" height="7" key="GridCell.Tab.0.bottom" timestamp="1641783218080">
@@ -258,13 +281,13 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="7" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641783218079" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641791643971">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1641793368535">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641791643971" />
-    <state x="2587" y="253" width="585" height="534" key="find.popup" timestamp="1641785164684">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641793368535" />
+    <state x="2587" y="253" width="585" height="534" key="find.popup" timestamp="1641795863346">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2587" y="253" width="585" height="534" key="find.popup/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641785164684" />
+    <state x="2587" y="253" width="585" height="534" key="find.popup/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1641795863346" />
   </component>
 </project>

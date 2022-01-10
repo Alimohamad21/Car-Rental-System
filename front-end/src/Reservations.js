@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from "react-router";
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
 import {CSVLink} from "react-csv";
 import Button from "bootstrap/js/src/button";
+import './index.css';
 
 function Reservations() {
     const {state} = useLocation();

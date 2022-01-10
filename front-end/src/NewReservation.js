@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import le from "react-datepicker";
 import {useLocation} from "react-router";
+import './index.css';
 
 function NewReservation() {
     const [locations, setLocations] = useState([]);
@@ -15,8 +16,8 @@ function NewReservation() {
     const [pickupDate, setPickupDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(pickupDate);
     let [error, setError] = useState('');
-     const {state} = useLocation();
-     const username = state.username;
+    const {state} = useLocation();
+    const username = state.username;
     const navigate = useNavigate();
     useEffect(() => {
         console.log(username)
@@ -43,15 +44,17 @@ function NewReservation() {
         if (pickupLocation === 'default' || returnLocation === 'default')
             setError('Please Choose location');
         else
-            navigate('/carSelect',{state:{
-                    'pickupDate':pickupDate,
-                    'pickupLocation':pickupLocation,
+            navigate('/carSelect', {
+                state: {
+                    'pickupDate': pickupDate,
+                    'pickupLocation': pickupLocation,
                     'returnDate': returnDate,
-                    'returnLocation':returnLocation,
-                    'pickupName':pickupName,
-                    'returnName':returnName,
-                    'username':username
-                }});
+                    'returnLocation': returnLocation,
+                    'pickupName': pickupName,
+                    'returnName': returnName,
+                    'username': username
+                }
+            });
     };
     const pickupData = (key) => {
         setPickupLocation(number[key]);
@@ -61,8 +64,9 @@ function NewReservation() {
         setReturnLocation(number[key]);
         setReturnName(locations[key]);
     }
-    return state==null?'unauthorized':(
-        <div className="new-reservation">
+    return state == null ? 'unauthorized' : (
+        <div className="left-margin">
+            <h1>New Reservation</h1>
             <select
                 id="pickup-office"
                 className="mt-2"
@@ -81,29 +85,32 @@ function NewReservation() {
                 onChange={e => returnData(e.target.value)}
             >
                 <option selected disabled hidden>Return Location</option>
-                {locations.map((item,key) =>
+                {locations.map((item, key) =>
                     <option value={key}>{item}</option>
                 )}
             </select>
-            <DatePicker
-                selected={pickupDate}
+            <div><label>Pick up date</label>
+                <DatePicker
+                    selected={pickupDate}
 
-                onChange={pickupDate => {
-                    setPickupDate(pickupDate)
-                    setReturnDate(pickupDate)
-                }}
+                    onChange={pickupDate => {
+                        setPickupDate(pickupDate)
+                        setReturnDate(pickupDate)
+                    }}
 
-                minDate={new Date()}
-                showDisabledMonthNavigation
-            />
+                    minDate={new Date()}
+                    showDisabledMonthNavigation
+                /></div>
 
+            <div>
+                <label>Return Date</label>
             <DatePicker
                 selected={returnDate}
                 onChange={returnDate => setReturnDate(returnDate)}
                 minDate={pickupDate}
                 showDisabledMonthNavigation
                 // isClearable={true}
-            />
+            /></div>
             <div>{error}</div>
             <button onClick={goToCarsList}>Reserve</button>
         </div>

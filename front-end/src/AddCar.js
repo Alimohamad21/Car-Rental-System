@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useNavigate} from "react-router";
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
+import './index.css';
 
 function AddCar() {
     const {state} = useLocation();
@@ -73,7 +74,7 @@ function AddCar() {
                             <Nav.Link>Add Car</Nav.Link>
                         </Nav>
                         <Nav className="float-end">
-                            <Nav.Link href="/login">Log out</Nav.Link>
+                            <Nav.Link href="/">Log out</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

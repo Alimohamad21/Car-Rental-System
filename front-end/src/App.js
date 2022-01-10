@@ -12,6 +12,8 @@ import CustomerHome from "./CustomerHome";
 import Reservations from "./Reservations";
 import EditCars from "./EditCars";
 import AddCar from "./AddCar";
+import Confirmation from "./Confirmations";
+import './index.css';
 
 function App() {
     return (
@@ -31,6 +33,7 @@ function App() {
                         <Route exact path="/customerReservations" element={<CustomerReservations/>}/>
                         <Route exact path="/carSelect" element={<CarsSelection/>}/>
                         <Route exact path="/payment" element={<Payment/>}/>
+                        <Route exact path="/confirmation" element={<Confirmation/>}/>
                     </Routes>
                 </div>
             </div>

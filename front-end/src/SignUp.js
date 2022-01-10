@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import './index.css';
 
 function SignUp() {
     const [firstNameReg, setFirstName] = useState('');
@@ -51,10 +52,6 @@ function SignUp() {
             })
         }
     };
-    const goToLogin = () => {
-
-    };
-
     return (
         <div className="signup">
             <div className="registration">
@@ -95,7 +92,6 @@ function SignUp() {
                 }}
                 />
                 <button onClick={register}>Sign Up</button>
-                <button onClick={goToLogin}>Log In Instead</button>
             </div>
             <div>{error}</div>
         </div>

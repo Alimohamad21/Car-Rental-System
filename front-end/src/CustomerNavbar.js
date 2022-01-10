@@ -1,4 +1,6 @@
 import {useNavigate} from "react-router-dom";
+import './index.css';
+import React from "react";
 
 const CustomerNavbar = () => {
     const username = "adham";
@@ -16,5 +18,5 @@ const CustomerNavbar = () => {
     </nav>
   );
 }
- 
+
 export default CustomerNavbar;
